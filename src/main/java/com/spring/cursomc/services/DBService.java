@@ -20,6 +20,7 @@ import com.spring.cursomc.domain.PaymentCartao;
 import com.spring.cursomc.domain.Product;
 import com.spring.cursomc.domain.State;
 import com.spring.cursomc.domain.enums.EstadoPagamento;
+import com.spring.cursomc.domain.enums.Perfil;
 import com.spring.cursomc.domain.enums.TipoCliente;
 import com.spring.cursomc.repositories.AddressRepository;
 import com.spring.cursomc.repositories.CategoryRepository;
@@ -125,16 +126,22 @@ public class DBService {
 		stateRepository.saveAll(Arrays.asList(est1, est2));
 		cityRepository.saveAll(Arrays.asList(c1, c2, c3));
 		
-		Client cli1 = new Client(null, "Adriano Hardtke", "adr.hardtke@gmail.com", "999.999.999-99", TipoCliente.PESSOAFISICA, pe.encode("123"));
+		Client cli1 = new Client(null, "Adriano Hardtke", "adr.hardtke@gmail.com", "034.760.480-39", TipoCliente.PESSOAFISICA, pe.encode("123"));
 		cli1.getTelefones().addAll(Arrays.asList("24565410","4567897"));
 		
+		Client cli2 = new Client(null, "Isabel Cousen", "adrghardtke@gmail.com", "034.760.480-39", TipoCliente.PESSOAFISICA, pe.encode("123"));
+		cli2.addPerfil(Perfil.Admin);
+		cli2.getTelefones().addAll(Arrays.asList("3231211","0800432343"));
+		
 		Address e1 = new Address(null, "Rua flores", "300", "apt 10", "Jardim", "322544", cli1, c1);
-		Address e2 = new Address(null, "Avenida Matoa", "105", "sala 800", "Centro", "456489", cli1, c2);
+		Address e2 = new Address(null, "Avenida Matos", "105", "sala 800", "Centro", "456489", cli1, c2);
+		Address e3 = new Address(null, "Avenida Floriano", "21a", null, "Centro", "874587", cli2, c2);
 		
 		cli1.getEnderecos().addAll(Arrays.asList(e1, e2)); 
+		cli2.getEnderecos().addAll(Arrays.asList(e3)); 
 		
-		clientRepository.saveAll(Arrays.asList(cli1));
-		addressRepository.saveAll(Arrays.asList(e1, e2));
+		clientRepository.saveAll(Arrays.asList(cli1, cli2));
+		addressRepository.saveAll(Arrays.asList(e1, e2, e3));
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 		Order ped1 = new Order(null, sdf.parse("30/09/2017 10:32"), cli1, e1);
