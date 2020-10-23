@@ -2,7 +2,7 @@ package com.spring.cursomc.domain.enums;
 
 public enum Perfil {
 	
-	Admin (1, "ROLE_ADMIN"),
+	ADMIN (1, "ROLE_ADMIN"),
 	CLIENTE (2, "ROLE_CLIENTE");
 	
 	private int cod;
