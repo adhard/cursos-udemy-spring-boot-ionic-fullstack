@@ -9,10 +9,6 @@ import org.hibernate.validator.constraints.Length;
 import com.spring.cursomc.domain.Category;
 
 public class CategoryDTO implements Serializable {
-	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	
 	private Integer id;
