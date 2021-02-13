@@ -11,6 +11,8 @@ import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+// tambem chamado de models
+
 @Entity
 public class Address implements Serializable {
 	private static final long serialVersionUID = 1L;

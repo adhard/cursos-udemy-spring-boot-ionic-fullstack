@@ -16,6 +16,8 @@ import com.spring.cursomc.security.UserSS;
 import com.spring.cursomc.services.AuthService;
 import com.spring.cursomc.services.UserService;
 
+// tambem chamado de controller
+
 @RestController
 @RequestMapping(value = "/auth")
 public class AuthResource {
